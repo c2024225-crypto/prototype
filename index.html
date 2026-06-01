@@ -1,42 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>寿司タイピング（自作）</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>寿司タイピング</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1>寿司タイピング（自作）</h1>
-    <div id="hud">
-      <div id="score">スコア: 0</div>
-      <div id="timer">残り時間: 60</div>
-    </div>
-  </header>
-
   <main>
-    <div id="stage">
-  <div id="track"></div>
+    <header>
+      <h1>寿司タイピング</h1>
+    </header>
 
-  <!-- 寿司だけを動かすラッパー -->
-  <div id="sushi-wrapper">
-    <img id="sushi-img"
-         src="images/sushineta.jpeg"
-         srcset="images/sushineta.jpeg 1x, images/sushineta@2x.jpeg 2x"
-         width="140" height="105"
-         alt="寿司ネタ">
-  </div>
+    <section id="game">
+      <div id="stage">
+        <div id="track"></div>
 
-  <!-- 単語はステージ直下に置いて中央に固定 -->
-  <div id="word"><span class="target"></span></div>
-</div>
+        <!-- 寿司だけを動かすラッパー -->
+        <div id="sushi-wrapper">
+          <img id="sushi-img"
+               src="images/sushineta.jpeg"
+               srcset="images/sushineta.jpeg 1x"
+               width="200" height="150"
+               alt="寿司ネタ">
+        </div>
 
-    </div>
+        <!-- 重要: 単語表示は sushi-wrapper の外に置く -->
+        <div id="word"><span class="target"></span></div>
+      </div>
 
-    <div id="controls">
-      <input id="input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="タイプしてね">
-    </div>
+      <div id="hud">
+        <div id="score">スコア: 0</div>
+        <div id="timer">残り時間: 60</div>
+      </div>
+
+      <div id="controls">
+        <input id="input" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="ここに入力">
+      </div>
+    </section>
   </main>
 
   <script src="js/main.js"></script>
