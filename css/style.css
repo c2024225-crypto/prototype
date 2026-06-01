@@ -1,40 +1,82 @@
+:root {
+  --stage-width: 900px;
+  --sushi-size: 140px;
+}
+
 body {
-  font-family: "Yu Gothic", sans-serif;
-  background: #f7f3e9;
-  text-align: center;
   margin: 0;
-  padding: 0;
+  font-family: "Yu Gothic", "Noto Sans JP", sans-serif;
+  background: #f7f3e9;
+  color: #222;
 }
 
 header {
-  background: #d35400;
-  color: white;
-  padding: 20px;
+  background: linear-gradient(90deg,#c94b1f,#f08a24);
+  color: #fff;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#sushi-area {
-  margin-top: 50px;
+#hud { display:flex; gap:20px; align-items:center; }
+
+main { display:flex; flex-direction:column; align-items:center; padding:24px; }
+
+#stage {
+  width: var(--stage-width);
+  height: 220px;
   position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.6);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+#track {
+  position:absolute;
+  left:0; right:0; bottom:20px;
+  height: 6px;
+  background: linear-gradient(90deg,#e6b89c,#f7e6d9);
+  margin: 0 40px;
+  border-radius: 6px;
+}
+
+#sushi-wrapper {
+  position: absolute;
+  top: 30px;
+  left: -220px;
+  display:flex;
+  align-items:center;
+  gap: 20px;
+  transition: transform 0.2s linear;
 }
 
 #sushi-img {
-  width: 200px;
-  animation: move 3s linear infinite;
-}
-
-@keyframes move {
-  from { transform: translateX(-300px); }
-  to { transform: translateX(300px); }
+  width: var(--sushi-size);
+  height: auto;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,0.25));
 }
 
 #word {
-  font-size: 40px;
-  margin-top: 20px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #2b2b2b;
+  background: rgba(255,255,255,0.85);
+  padding: 8px 12px;
+  border-radius: 8px;
+  min-width: 220px;
+  text-align: left;
 }
 
+#word .matched { color: #2ecc71; }
+#word .remaining { color: #333; opacity: 0.8; }
+
+#controls { margin-top: 20px; }
 #input {
-  margin-top: 30px;
-  font-size: 24px;
-  padding: 10px;
-  width: 300px;
+  font-size: 22px;
+  padding: 10px 14px;
+  width: 420px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
 }
