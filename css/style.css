@@ -149,8 +149,15 @@ main { display:flex; flex-direction:column; align-items:center; padding:24px; }
   #input { width: 90%; font-size: 16px; }
 }
 
-/* ---------- 単語表示を確実に中央に固定 ---------- */
-#stage { position: relative !important; z-index: 10; } /* stage は背面 */
+/* ---------- ステージを中央に配置（親の基準を明確に） ---------- */
+#stage {
+  width: var(--stage-width, 900px);
+  margin: 0 auto;            /* ページ中央に配置 */
+  position: relative !important;
+  z-index: 10;
+}
+
+/* ---------- 単語表示を厳密に中央固定 ---------- */
 #word {
   position: absolute !important;
   top: 48px !important;
@@ -166,25 +173,44 @@ main { display:flex; flex-direction:column; align-items:center; padding:24px; }
   pointer-events: none !important;
   box-shadow: 0 4px 10px rgba(0,0,0,0.06) !important;
   background: rgba(255,255,255,0.95) !important;
-  z-index: 20 !important; /* 入力欄より前面に出したい場合は大きくする */
+  z-index: 30 !important;
+  width: auto !important;
 }
 
-/* 単語内部の span を中央揃えにして右寄りを防ぐ */
+/* 単語内部の中央揃えを強制 */
 #word .target {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-
-/* matched / remaining の余白や float を打ち消す（もし既存ルールがあれば上書き） */
-#word .target .matched,
-#word .target .remaining,
-#word .target span {
   display: inline-block !important;
+  width: 100% !important;
+  text-align: center !important;
   margin: 0 !important;
   padding: 0 !important;
-  float: none !important;
-  vertical-align: middle !important;
+}
+
+/* ---------- 入力欄をステージ下に中央表示 ---------- */
+#controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  position: relative;
+  z-index: 40;
+}
+
+#input {
+  width: 60%;
+  max-width: 640px;
+  min-width: 220px;
+  padding: 10px 14px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* スマホ用 */
+@media (max-width: 980px) {
+  #input { width: 90%; font-size: 16px; }
+  #word { top: 36px; font-size: 28px; min-width: 160px; }
 }
