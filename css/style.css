@@ -214,3 +214,81 @@ main { display:flex; flex-direction:column; align-items:center; padding:24px; }
   #input { width: 90%; font-size: 16px; }
   #word { top: 36px; font-size: 28px; min-width: 160px; }
 }
+/* ---------- 即効の上書き（css/style.css の末尾に貼る） ---------- */
+#stage {
+  width: var(--stage-width, 900px) !important;
+  max-width: 95vw !important;
+  margin: 0 auto !important;        /* ページ中央に配置 */
+  position: relative !important;
+  z-index: 10 !important;
+  box-sizing: border-box !important;
+}
+
+/* 単語表示を厳密に中央固定 */
+#word {
+  position: absolute !important;
+  top: 48px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  margin: 0 !important;
+  padding: 8px 12px !important;
+  min-width: 220px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  pointer-events: none !important;
+  background: rgba(255,255,255,0.95) !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06) !important;
+  z-index: 30 !important;
+  width: auto !important;
+}
+
+/* 単語内部の中央揃えを強制 */
+#word .target,
+#word .target span,
+#word .target .matched,
+#word .target .remaining {
+  display: inline-block !important;
+  width: 100% !important;
+  text-align: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  float: none !important;
+  vertical-align: middle !important;
+}
+
+/* 入力欄をステージ下に中央表示 */
+#controls {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 18px !important;
+  position: relative !important;
+  z-index: 40 !important;
+}
+
+#input {
+  width: 60% !important;
+  max-width: 640px !important;
+  min-width: 220px !important;
+  padding: 10px 14px !important;
+  font-size: 18px !important;
+  border-radius: 8px !important;
+  border: 1px solid #ddd !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06) !important;
+  background: #fff !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* 最終手段：親の transform の影響を消す（寿司の動きに影響が出たらこの行だけ削除） */
+#stage * { transform: none !important; }
+
+/* レスポンシブ */
+@media (max-width: 980px) {
+  #stage { width: 92vw !important; }
+  #input { width: 90% !important; font-size: 16px !important; }
+  #word { top: 36px !important; font-size: 28px !important; min-width: 160px !important; }
+}
