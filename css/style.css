@@ -1,0 +1,40 @@
+body {
+  font-family: "Yu Gothic", sans-serif;
+  background: #f7f3e9;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #d35400;
+  color: white;
+  padding: 20px;
+}
+
+#sushi-area {
+  margin-top: 50px;
+  position: relative;
+}
+
+#sushi-img {
+  width: 200px;
+  animation: move 3s linear infinite;
+}
+
+@keyframes move {
+  from { transform: translateX(-300px); }
+  to { transform: translateX(300px); }
+}
+
+#word {
+  font-size: 40px;
+  margin-top: 20px;
+}
+
+#input {
+  margin-top: 30px;
+  font-size: 24px;
+  padding: 10px;
+  width: 300px;
+}
