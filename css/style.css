@@ -56,11 +56,12 @@ main { display:flex; flex-direction:column; align-items:center; padding:24px; }
   will-change: transform;
 }
 
-/* 単語をステージ中央に固定 */
-#stage { position: relative; } /* 既にあるはずですが念のため */
+/* 追加／置換する CSS（#word を中央固定） */
+#stage { position: relative; } /* 既にあれば重複してもOK */
+
 #word {
   position: absolute;
-  top: 48px; /* 見た目に合わせて調整 */
+  top: 48px;               /* 縦位置は見た目で調整 */
   left: 50%;
   transform: translateX(-50%);
   font-size: 36px;
@@ -74,8 +75,10 @@ main { display:flex; flex-direction:column; align-items:center; padding:24px; }
   align-items: center;
   justify-content: center;
   text-align: center;
-  pointer-events: none; /* クリックを邪魔しない */
+  pointer-events: none;    /* クリックを邪魔しない */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
 }
+
 
 /* 改善版 #sushi-img */
 #sushi-img {
