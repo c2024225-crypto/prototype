@@ -3,67 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>寿司タイピング（自作）</title>
-  <style>
-    body {
-      text-align: center;
-      font-family: sans-serif;
-      margin-top: 50px;
-    }
-    #word {
-      font-size: 40px;
-      margin: 20px;
-    }
-    #score, #timer {
-      font-size: 24px;
-      margin: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <h1>寿司タイピング（自作）</h1>
-  <div id="score">スコア: 0</div>
-  <div id="word">maguro</div>
-  <input id="input" type="text" placeholder="入力してEnter">
-  <div id="timer">残り時間: 30</div>
+  <header>
+    <h1>寿司タイピング（自作）</h1>
+    <div id="score">スコア: 0</div>
+    <div id="timer">残り時間: 30</div>
+  </header>
 
-  <script>
-    const words = ["maguro", "ebi", "salmon", "tamago", "ika", "uni", "toro"];
-    let score = 0;
-    let time = 30;
+  <main>
+    <div id="sushi-area">
+      <img id="sushi-img" src="images/sushi.png">
+      <div id="word">maguro</div>
+    </div>
 
-    const wordEl = document.getElementById("word");
-    const inputEl = document.getElementById("input");
-    const scoreEl = document.getElementById("score");
-    const timerEl = document.getElementById("timer");
+    <input id="input" type="text" placeholder="入力してEnter">
+  </main>
 
-    function setNewWord() {
-      const random = Math.floor(Math.random() * words.length);
-      wordEl.textContent = words[random];
-    }
-
-    inputEl.addEventListener("keydown", function(e) {
-      if (e.key === "Enter") {
-        if (inputEl.value === wordEl.textContent) {
-          score++;
-          scoreEl.textContent = "スコア: " + score;
-          setNewWord();
-        }
-        inputEl.value = "";
-      }
-    });
-
-    setInterval(() => {
-      time--;
-      timerEl.textContent = "残り時間: " + time;
-      if (time <= 0) {
-        alert("ゲーム終了！スコア: " + score);
-        location.reload();
-      }
-    }, 1000);
-
-    setNewWord();
-  </script>
-
+  <script src="js/main.js"></script>
 </body>
 </html>
