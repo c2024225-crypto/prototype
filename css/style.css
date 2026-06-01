@@ -52,11 +52,19 @@ main { display:flex; flex-direction:column; align-items:center; padding:24px; }
   transition: transform 0.2s linear;
 }
 
+/* 改善版 #sushi-img */
 #sushi-img {
   width: var(--sushi-size);
-  height: auto;
+  height: calc(var(--sushi-size) * 0.75); /* 高さを比率で固定（必要に応じ調整） */
+  object-fit: cover; /* 画像の縦横比を保ちながら枠にフィット */
+  display: block; /* インラインの余白を消す */
+  border-radius: 8px;
+  background: #fff;
+  padding: 6px;
   filter: drop-shadow(0 6px 8px rgba(0,0,0,0.25));
+  flex-shrink: 0; /* flexコンテナ内で縮まないようにする */
 }
+
 
 #word {
   font-size: 36px;
