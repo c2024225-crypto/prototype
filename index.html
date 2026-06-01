@@ -2,10 +2,68 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>My First HTML</title>
+  <title>寿司タイピング（自作）</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+      margin-top: 50px;
+    }
+    #word {
+      font-size: 40px;
+      margin: 20px;
+    }
+    #score, #timer {
+      font-size: 24px;
+      margin: 10px;
+    }
+  </style>
 </head>
 <body>
-  <h1>こんにちは！</h1>
-  <p>これは GitHub 上で作った最初の HTML ページです。</p>
+
+  <h1>寿司タイピング（自作）</h1>
+  <div id="score">スコア: 0</div>
+  <div id="word">maguro</div>
+  <input id="input" type="text" placeholder="入力してEnter">
+  <div id="timer">残り時間: 30</div>
+
+  <script>
+    const words = ["maguro", "ebi", "salmon", "tamago", "ika", "uni", "toro"];
+    let score = 0;
+    let time = 30;
+
+    const wordEl = document.getElementById("word");
+    const inputEl = document.getElementById("input");
+    const scoreEl = document.getElementById("score");
+    const timerEl = document.getElementById("timer");
+
+    function setNewWord() {
+      const random = Math.floor(Math.random() * words.length);
+      wordEl.textContent = words[random];
+    }
+
+    inputEl.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {
+        if (inputEl.value === wordEl.textContent) {
+          score++;
+          scoreEl.textContent = "スコア: " + score;
+          setNewWord();
+        }
+        inputEl.value = "";
+      }
+    });
+
+    setInterval(() => {
+      time--;
+      timerEl.textContent = "残り時間: " + time;
+      if (time <= 0) {
+        alert("ゲーム終了！スコア: " + score);
+        location.reload();
+      }
+    }, 1000);
+
+    setNewWord();
+  </script>
+
 </body>
 </html>
