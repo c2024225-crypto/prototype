@@ -17,15 +17,21 @@
 
   <main>
     <div id="stage">
-      <div id="track"></div>
-      <div id="sushi-wrapper">
-  <img id="sushi-img"
-       src="images/sushineta.jpeg"
-       srcset="images/sushineta.jpeg 1x, images/sushineta@2x.jpeg 2x"
-       width="140" height="105"
-       alt="寿司ネタ">
-        <div id="word"><span class="target"></span></div>
-      </div>
+  <div id="track"></div>
+
+  <!-- 寿司だけを動かすラッパー -->
+  <div id="sushi-wrapper">
+    <img id="sushi-img"
+         src="images/sushineta.jpeg"
+         srcset="images/sushineta.jpeg 1x, images/sushineta@2x.jpeg 2x"
+         width="140" height="105"
+         alt="寿司ネタ">
+  </div>
+
+  <!-- 単語はステージ直下に置いて中央に固定 -->
+  <div id="word"><span class="target"></span></div>
+</div>
+
     </div>
 
     <div id="controls">
