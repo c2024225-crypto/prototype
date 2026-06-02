@@ -103,7 +103,7 @@ inputEl.addEventListener("input", () => {
       sushiWrapper.style.transition = "none";
       pickWord();
     }, 650);
-   }
+ }
 });
 
 // タイマーと寿司移動
