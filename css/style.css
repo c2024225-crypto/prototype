@@ -180,3 +180,18 @@ main {
   transform: none !important; /* 念のため */
 }
 
+/* ★ 単語ボックスの高さを固定して上下中央にする */
+#word {
+  height: 48px;              /* ← 文字の高さに合わせて固定（重要） */
+  line-height: 48px;         /* ← 文字を上下中央に固定（最重要） */
+  display: flex;
+  align-items: center;       /* ← flex でも中央に寄せる */
+  justify-content: center;
+}
+#word .matched,
+#word .remaining {
+  line-height: 48px;   /* ← #word と同じ高さにする */
+  display: inline-block;
+  vertical-align: middle;
+}
+
