@@ -92,7 +92,7 @@ inputEl.addEventListener("input", () => {
   progress = newProgress;
   renderWord();
 
-  //if (val === current) {
+  if (val === current) {
     score++;
     scoreEl.textContent = "スコア: " + score;
     inputEl.value = "";
